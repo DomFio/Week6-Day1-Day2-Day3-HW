@@ -1,6 +1,23 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<!-- Flask flasked message to user -->
+<div class="container">
+    {% with messages = get_flashed_messages(with_categories = true) %}
+        {% if messages %}
+            {% for cat, msg in messages %}
+                {% if cat == 'user-created' %}
+                    <div class="alert alert-success">
+                        {{ msg }}
+                        <button type="button" class="close" sata-dismiss="alert" onclick="this.parentElement.style.display='none'">&times;</button>
+
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+        
+</div>
 
 <div class="container">
     <!-- Header Section -->
@@ -55,7 +72,7 @@
         <!-- Start of Community Section -->
         <section class ="row">
             <div class="col-12 col-md-6">
-                <img src="../../static/images/undraw_superhero_kguv.svg" alt="Hero Image" id="hero-image" width="450" height="450">
+                <img src="../../static/images/undraw_superhero_kguv.svg" alt="Hero Image" id="hero-image" width="300" height="300">
             </div>
             <div class="col-12 col-md-6">
                 <h4>Talk with Like-minded marvel collectors</h4>
